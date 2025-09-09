@@ -1,0 +1,23 @@
+appName: green
+tag: v1.0.0
+
+image:
+  repository: 637423279607.dkr.ecr.ap-northeast-2.amazonaws.com
+
+replicaCount: 2
+
+service:
+  type: NodePort
+  port: 80
+  targetPort: 8080
+
+# ALB가 생성될 서브넷 지정 (YAML 문자열로 처리)
+subnets: ","
+
+resources:
+  limits:
+    cpu: 500m
+    memory: 512Mi
+  requests:
+    cpu: 250m
+    memory: 256Mi
