@@ -1,0 +1,30 @@
+appName: app
+tag: v1.0.0
+
+image:
+  repository: 637423279607.dkr.ecr.ap-northeast-2.amazonaws.com
+  pullPolicy: IfNotPresent
+
+serviceAccount:
+  create: true
+  annotations: {}
+  name: ""
+
+subnets: subnet-07e3a9d2ce7e4d70c,subnet-0f837a75bab2b3fe9
+
+replicaCount: 2
+service:
+  type: NodePort
+  port: 80
+  targetPort: 8080
+
+ingress:
+  enabled: true
+  className: "alb"
+
+resources: {}
+autoscaling:
+  enabled: false
+nodeSelector: {}
+tolerations: []
+affinity: {}
